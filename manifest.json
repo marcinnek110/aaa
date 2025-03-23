@@ -3,7 +3,7 @@
     "short_name": "Plan",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#f4f4f4",
+    "background_color": "#000", 
     "theme_color": "#004d99",
     "icons": [
         {

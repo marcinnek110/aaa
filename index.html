@@ -14,74 +14,27 @@
     <header>
         <nav>
             <span class="nav-icon left-arrow">←</span>
-            <span class="nav-title">Dzień</span>
-            <span class="nav-icon right-arrow">→</span>
+            <span class="nav-title">MD+ Dzień</span>
+            <span class="nav-icons-right">
+                <span class="nav-icon eye">👁️</span>
+                <span class="nav-icon plus">➕</span>
+            </span>
         </nav>
         <div class="date-header">
-            <h2>Poniedziałek, 7 kwietnia 2025</h2>
+            <h2 id="current-date">Poniedziałek, 7 kwietnia 2025</h2>
         </div>
         <div class="calendar">
-            <span class="day active">P</span>
-            <span class="day">W</span>
-            <span class="day">Ś</span>
-            <span class="day">C</span>
-            <span class="day">P</span>
-            <span class="day">S</span>
-            <span class="day">N</span>
-            <span class="day active">7</span>
-            <span class="day">8</span>
-            <span class="day">9</span>
-            <span class="day">10</span>
-            <span class="day">11</span>
-            <span class="day">12</span>
-            <span class="day">13</span>
+            <span class="day active" data-day="0">P 7</span>
+            <span class="day" data-day="1">W 8</span>
+            <span class="day" data-day="2">Ś 9</span>
+            <span class="day" data-day="3">C 10</span>
+            <span class="day" data-day="4">P 11</span>
+            <span class="day" data-day="5">S 12</span>
+            <span class="day" data-day="6">N 13</span>
         </div>
     </header>
     <main>
-        <ul id="timetable">
-            <li>
-                <div class="lesson" style="background-color: #66ccff;">
-                    <span class="time">08:15 - 09:00</span>
-                    <span class="subject">Godzina wychowawcza</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #6666ff;">
-                    <span class="time">09:10 - 09:55</span>
-                    <span class="subject">Język polski</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #ff3399;">
-                    <span class="time">10:05 - 10:50</span>
-                    <span class="subject">Religia</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #ccff66;">
-                    <span class="time">11:10 - 11:55</span>
-                    <span class="subject">Biznes i zarządzanie</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #ff3333;">
-                    <span class="time">12:05 - 12:50</span>
-                    <span class="subject">Informatyka</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #ff9933;">
-                    <span class="time">13:00 - 13:45</span>
-                    <span class="subject">Geografia</span>
-                </div>
-            </li>
-            <li>
-                <div class="lesson" style="background-color: #cc33cc;">
-                    <span class="time">13:55 - 14:40</span>
-                    <span class="subject">Matematyka</span>
-                </div>
-            </li>
-        </ul>
+        <ul id="timetable"></ul>
     </main>
     <script src="script.js"></script>
 </body>
