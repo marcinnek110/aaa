@@ -164,6 +164,17 @@ function resetTimetable() {
     displayTimetable(currentDayIndex);
 }
 
+// Funkcja do obliczania jasności koloru (na podstawie RGB)
+function getBrightness(hexColor) {
+    // Usuń znak # z koloru hex
+    hexColor = hexColor.replace("#", "");
+    const r = parseInt(hexColor.substr(0, 2), 16);
+    const g = parseInt(hexColor.substr(2, 2), 16);
+    const b = parseInt(hexColor.substr(4, 2), 16);
+    // Wzór na luminancję: (0.299R + 0.587G + 0.114B)
+    return (r * 299 + g * 587 + b * 114) / 1000;
+}
+
 // Funkcja do wyświetlania planu dla wybranego dnia
 function displayTimetable(dayIndex) {
     console.log("Wyświetlam plan dla dnia:", dayIndex);
@@ -195,13 +206,16 @@ function displayTimetable(dayIndex) {
         const lesson = dayLessons.find(l => l.time === `${slot.start} - ${slot.end}`);
 
         if (lesson) {
-            // Jeśli jest lekcja w tym przedziale czasowym
+            // Oblicz jasność tła i ustaw kolor tekstu
+            const brightness = getBrightness(lesson.color);
+            const textColor = brightness < 128 ? "#fff" : "#000"; // Ciemne tło -> biały tekst, jasne tło -> czarny tekst
+
             li.innerHTML = `
                 <span class="time-left">${slot.lessonNumber}. ${slot.start}</span>
                 <div class="lesson" style="background-color: ${lesson.color};" data-day="${dayIndex}" data-slot="${slotIndex}">
-                    <span class="subject">${lesson.subject}</span>
+                    <span class="subject" style="color: ${textColor};">${lesson.subject}</span>
                     <div class="lesson-right">
-                        <span class="time">${lesson.time}</span>
+                        <span class="time" style="color: ${textColor};">${lesson.time}</span>
                         <div class="lesson-actions">
                             <button class="edit-btn" data-day="${dayIndex}" data-slot="${slotIndex}">✏️</button>
                             <button class="delete-btn" data-day="${dayIndex}" data-slot="${slotIndex}">🗑️</button>
@@ -216,7 +230,6 @@ function displayTimetable(dayIndex) {
                 }
             });
         } else {
-            // Jeśli nie ma lekcji, wyświetlamy pustą lukę z przyciskiem "Dodaj"
             li.innerHTML = `
                 <span class="time-left">${slot.lessonNumber}. ${slot.start}</span>
                 <div class="lesson empty" data-day="${dayIndex}" data-slot="${slotIndex}">
