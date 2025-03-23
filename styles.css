@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+}
+
+.nav-icon {
+    font-size: 20px;
+    color: #0073e6;
+}
+
+.nav-title {
+    font-size: 16px;
+    color: #333;
+}
+
+.date-header {
+    margin: 10px 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.day {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #333;
+}
+
+.day.active {
+    background-color: #0073e6;
+    color: white;
+}
+
+main {
+    padding: 0 10px;
+}
+
+#timetable {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#timetable li {
+    margin-bottom: 2px;
+}
+
+.lesson {
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.time {
+    font-size: 10px;
+    color: #333;
+}
+
+.subject {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 3px 5px;
+    }
+
+    .nav-icon {
+        font-size: 18px;
+    }
+
+    .nav-title {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 12px;
+    }
+
+    .calendar .day {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 10px;
+    }
+
+    .time {
+        font-size: 9px;
+    }
+
+    .subject {
+        font-size: 11px;
+    }
+
+    .lesson {
+        padding: 2px 3px;
+    }
+}
