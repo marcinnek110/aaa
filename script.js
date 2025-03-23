@@ -7,7 +7,9 @@ const timeSlots = [
     { start: "12:05", end: "12:50", lessonNumber: 5 },
     { start: "13:00", end: "13:45", lessonNumber: 6 },
     { start: "13:55", end: "14:40", lessonNumber: 7 },
-    { start: "14:50", end: "15:35", lessonNumber: 8 }
+    { start: "14:50", end: "15:35", lessonNumber: 8 },
+    { start: "15:45", end: "16:30", lessonNumber: 9 },
+    { start: "16:35", end: "17:20", lessonNumber: 10 }
 ];
 
 // Dane planu zajęć dla każdego dnia (z dodanymi szczegółami)
