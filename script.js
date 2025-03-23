@@ -1,54 +1,67 @@
+// Definiujemy wszystkie możliwe przedziały czasowe w ciągu dnia (co 45 minut)
+const timeSlots = [
+    { start: "08:15", end: "09:00" },
+    { start: "09:10", end: "09:55" },
+    { start: "10:05", end: "10:50" },
+    { start: "11:10", end: "11:55" },
+    { start: "12:05", end: "12:50" },
+    { start: "13:00", end: "13:45" },
+    { start: "13:55", end: "14:40" },
+    { start: "14:50", end: "15:35" }
+];
+
 // Dane planu zajęć dla każdego dnia
 const timetableData = [
     // Poniedziałek, 7 kwietnia 2025
     [
-        { timeLeft: "08:15", time: "08:15 - 09:00", subject: "Godzina wychowawcza", color: "#66ccff" },
-        { timeLeft: "09:10", time: "09:10 - 09:55", subject: "Język polski", color: "#6666ff" },
-        { timeLeft: "10:05", time: "10:05 - 10:50", subject: "Religia", color: "#ff3399" },
-        { timeLeft: "11:10", time: "11:10 - 11:55", subject: "Biznes i zarządzanie", color: "#ccff66" },
-        { timeLeft: "12:05", time: "12:05 - 12:50", subject: "Informatyka", color: "#ff3333" },
-        { timeLeft: "13:00", time: "13:00 - 13:45", subject: "Geografia", color: "#ff9933" },
-        { timeLeft: "13:55", time: "13:55 - 14:40", subject: "Matematyka", color: "#cc33cc" }
+        { time: "08:15 - 09:00", subject: "Godzina wychowawcza", color: "#66ccff" },
+        { time: "09:10 - 09:55", subject: "Język polski", color: "#6666ff" },
+        { time: "10:05 - 10:50", subject: "Religia", color: "#ff3399" },
+        // Brak "Biznes i zarządzanie" w przedziale 11:10 - 11:55, będzie pusta luka
+        { time: "12:05 - 12:50", subject: "Informatyka", color: "#ff3333" },
+        { time: "13:00 - 13:45", subject: "Geografia", color: "#ff9933" },
+        { time: "13:55 - 14:40", subject: "Matematyka", color: "#cc33cc" }
+        // Brak lekcji w przedziale 14:50 - 15:35, będzie pusta luka
     ],
     // Wtorek, 8 kwietnia 2025
     [
-        { timeLeft: "09:10", time: "09:10 - 09:55", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
-        { timeLeft: "10:05", time: "10:05 - 10:50", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
-        { timeLeft: "11:10", time: "11:10 - 11:55", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
-        { timeLeft: "12:05", time: "12:05 - 12:50", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
-        { timeLeft: "13:00", time: "13:00 - 13:45", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
-        { timeLeft: "13:55", time: "13:55 - 14:40", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
-        { timeLeft: "14:50", time: "14:50 - 15:35", subject: "Geografia", color: "#ff9933" }
+        { time: "09:10 - 09:55", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
+        { time: "10:05 - 10:50", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
+        { time: "11:10 - 11:55", subject: "Montaż i eksploatacja lokalnej sieci komputerowej", color: "#33ccff" },
+        { time: "12:05 - 12:50", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
+        { time: "13:00 - 13:45", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
+        { time: "13:55 - 14:40", subject: "Tworzenie i testowanie aplikacji", color: "#cc33cc" },
+        { time: "14:50 - 15:35", subject: "Geografia", color: "#ff9933" }
     ],
     // Środa, 9 kwietnia 2025
     [
-        { timeLeft: "09:10", time: "09:10 - 09:55", subject: "Matematyka", color: "#cc33cc" },
-        { timeLeft: "10:05", time: "10:05 - 10:50", subject: "Wychowanie fizyczne", color: "#ff9933" },
-        { timeLeft: "11:10", time: "11:10 - 11:55", subject: "Historia", color: "#6666ff" },
-        { timeLeft: "12:05", time: "12:05 - 12:50", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
-        { timeLeft: "13:00", time: "13:00 - 13:45", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
-        { timeLeft: "13:55", time: "13:55 - 14:40", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
-        { timeLeft: "14:50", time: "14:50 - 15:35", subject: "Język angielski", color: "#ff3333" }
+        { time: "09:10 - 09:55", subject: "Matematyka", color: "#cc33cc" },
+        { time: "10:05 - 10:50", subject: "Wychowanie fizyczne", color: "#ff9933" },
+        { time: "11:10 - 11:55", subject: "Historia", color: "#6666ff" },
+        { time: "12:05 - 12:50", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
+        { time: "13:00 - 13:45", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
+        { time: "13:55 - 14:40", subject: "Administrowanie serwerowymi systemami operacyjnymi", color: "#66ff66" },
+        { time: "14:50 - 15:35", subject: "Język angielski", color: "#ff3333" }
     ],
     // Czwartek, 10 kwietnia 2025
     [
-        { timeLeft: "08:15", time: "08:15 - 09:00", subject: "Język polski", color: "#6666ff" },
-        { timeLeft: "09:10", time: "09:10 - 09:55", subject: "Biznes i zarządzanie", color: "#ccff66" },
-        { timeLeft: "10:05", time: "10:05 - 10:50", subject: "Biologia", color: "#ffcc33" },
-        { timeLeft: "11:10", time: "11:10 - 11:55", subject: "Naprawa urządzeń techniki komputerowej", color: "#ff3399" },
-        { timeLeft: "12:05", time: "12:05 - 12:50", subject: "Naprawa urządzeń techniki komputerowej", color: "#ff3399" },
-        { timeLeft: "13:00", time: "13:00 - 13:45", subject: "Język angielski", color: "#ff3333" },
-        { timeLeft: "13:55", time: "13:55 - 14:40", subject: "Wychowanie fizyczne", color: "#ff9933" }
+        { time: "08:15 - 09:00", subject: "Język polski", color: "#6666ff" },
+        { time: "09:10 - 09:55", subject: "Biznes i zarządzanie", color: "#ccff66" },
+        { time: "10:05 - 10:50", subject: "Biologia", color: "#ffcc33" },
+        { time: "11:10 - 11:55", subject: "Naprawa urządzeń techniki komputerowej", color: "#ff3399" },
+        { time: "12:05 - 12:50", subject: "Naprawa urządzeń techniki komputerowej", color: "#ff3399" },
+        { time: "13:00 - 13:45", subject: "Język angielski", color: "#ff3333" },
+        { time: "13:55 - 14:40", subject: "Wychowanie fizyczne", color: "#ff9933" }
     ],
     // Piątek, 11 kwietnia 2025
     [
-        { timeLeft: "08:15", time: "08:15 - 09:00", subject: "Język niemiecki", color: "#66ff66" },
-        { timeLeft: "09:10", time: "09:10 - 09:55", subject: "Język polski", color: "#6666ff" },
-        { timeLeft: "10:05", time: "10:05 - 10:50", subject: "Język angielski", color: "#ff3333" },
-        { timeLeft: "11:10", time: "11:10 - 11:55", subject: "Eksploatacja urządzeń peryferyjnych", color: "#33ccff" },
-        { timeLeft: "12:05", time: "12:05 - 12:50", subject: "Eksploatacja urządzeń peryferyjnych", color: "#33ccff" },
-        { timeLeft: "13:00", time: "13:00 - 13:45", subject: "Historia i teraźniejszość", color: "#66ff66" },
-        { timeLeft: "13:55", time: "13:55 - 14:40", subject: "Historia", color: "#6666ff" }
+        { time: "08:15 - 09:00", subject: "Język niemiecki", color: "#66ff66" },
+        { time: "09:10 - 09:55", subject: "Język polski", color: "#6666ff" },
+        { time: "10:05 - 10:50", subject: "Język angielski", color: "#ff3333" },
+        { time: "11:10 - 11:55", subject: "Eksploatacja urządzeń peryferyjnych", color: "#33ccff" },
+        { time: "12:05 - 12:50", subject: "Eksploatacja urządzeń peryferyjnych", color: "#33ccff" },
+        { time: "13:00 - 13:45", subject: "Historia i teraźniejszość", color: "#66ff66" },
+        { time: "13:55 - 14:40", subject: "Historia", color: "#6666ff" }
     ]
 ];
 
@@ -80,22 +93,30 @@ function displayTimetable(dayIndex) {
         }
     });
 
-    // Wypełnij plan lekcji
-    if (timetableData[dayIndex]) {
-        timetableData[dayIndex].forEach(lesson => {
-            const li = document.createElement("li");
+    // Wypełnij plan lekcji z uwzględnieniem wszystkich przedziałów czasowych
+    const dayLessons = timetableData[dayIndex] || [];
+    timeSlots.forEach(slot => {
+        const li = document.createElement("li");
+        const lesson = dayLessons.find(l => l.time === `${slot.start} - ${slot.end}`);
+
+        if (lesson) {
+            // Jeśli jest lekcja w tym przedziale czasowym
             li.innerHTML = `
-                <span class="time-left">${lesson.timeLeft}</span>
+                <span class="time-left">${slot.start}</span>
                 <div class="lesson" style="background-color: ${lesson.color};">
                     <span class="subject">${lesson.subject}</span>
                     <span class="time">${lesson.time}</span>
                 </div>
             `;
-            timetable.appendChild(li);
-        });
-    } else {
-        console.error("Brak danych dla dnia:", dayIndex);
-    }
+        } else {
+            // Jeśli nie ma lekcji, wyświetlamy pustą lukę
+            li.innerHTML = `
+                <span class="time-left">${slot.start}</span>
+                <div class="lesson empty"></div>
+            `;
+        }
+        timetable.appendChild(li);
+    });
 }
 
 // Inicjalizacja - wyświetl poniedziałek

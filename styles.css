@@ -86,7 +86,8 @@ main {
 #timetable li {
     display: flex;
     align-items: center;
-    margin-bottom: 1px;
+    margin-bottom: 2px; /* Mniejszy odstęp między blokami */
+    min-height: 40px; /* Większa wysokość bloków */
 }
 
 .time-left {
@@ -99,20 +100,25 @@ main {
 
 .lesson {
     flex: 1;
-    padding: 3px 5px;
+    padding: 5px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Nazwa przedmiotu po lewej, godziny po prawej */
+    align-items: center;
 }
 
-.time {
-    font-size: 8px;
-    color: #000;
+.lesson.empty {
+    background-color: transparent;
 }
 
 .subject {
     font-size: 10px;
     font-weight: bold;
+    color: #000;
+}
+
+.time {
+    font-size: 8px;
     color: #000;
 }
 
@@ -154,15 +160,20 @@ main {
         font-size: 7px;
     }
 
-    .time {
-        font-size: 7px;
-    }
-
     .subject {
         font-size: 9px;
     }
 
+    .time {
+        font-size: 7px;
+    }
+
     .lesson {
-        padding: 2px 3px;
+        padding: 3px;
+    }
+
+    #timetable li {
+        min-height: 35px; /* Większa wysokość na telefonie */
+        margin-bottom: 1px;
     }
 }
