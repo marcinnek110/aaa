@@ -151,25 +151,25 @@ main {
     display: flex;
     align-items: center;
     margin-bottom: 1px;
-    min-height: 40px;
+    min-height: 50px; /* Domyślna wysokość dla większych ekranów */
 }
 
 .time-left {
-    width: 35px;
-    font-size: 7px;
+    width: 40px;
+    font-size: 8px;
     color: #fff;
     text-align: right;
-    padding-right: 2px;
+    padding-right: 5px;
 }
 
 .lesson {
     flex: 1;
-    padding: 5px 8px;
+    padding: 8px 10px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 3px;
+    margin-right: 5px;
     transition: background-color 0.2s ease;
     cursor: pointer;
 }
@@ -187,13 +187,13 @@ main {
 }
 
 .subject {
-    font-size: 9px;
+    font-size: 11px;
     font-weight: bold;
     color: #000;
 }
 
 .time {
-    font-size: 7px;
+    font-size: 9px;
     color: #000;
 }
 
@@ -203,7 +203,7 @@ main {
 }
 
 .edit-btn, .delete-btn, .add-btn {
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
     background: none;
     border: none;
@@ -221,7 +221,7 @@ main {
 
 .add-btn {
     color: #66ccff;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 /* Pokazuj przyciski tylko w trybie edycji */
@@ -329,7 +329,105 @@ button[type="submit"]:hover {
     display: none;
 }
 
-@media (max-width: 600px) {
+/* Media query dla iPhone 12 Pro Max (428px szerokości) */
+@media only screen and (max-width: 428px) {
+    nav {
+        padding: 3px 5px;
+    }
+
+    .nav-icon {
+        font-size: 12px;
+    }
+
+    .nav-title {
+        font-size: 10px;
+    }
+
+    .eye, .plus {
+        font-size: 11px;
+    }
+
+    .reset-btn {
+        font-size: 9px;
+        padding: 2px 4px;
+    }
+
+    h2 {
+        font-size: 9px;
+    }
+
+    .calendar {
+        gap: 5px;
+    }
+
+    .day {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 9px;
+        border-radius: 50%;
+    }
+
+    .time-left {
+        width: 38px; /* Dopasowane do zrzutu ekranu */
+        font-size: 8px;
+        padding-right: 4px;
+    }
+
+    .subject {
+        font-size: 11px; /* Dopasowane do zrzutu ekranu */
+    }
+
+    .time {
+        font-size: 9px; /* Dopasowane do zrzutu ekranu */
+    }
+
+    .lesson {
+        padding: 8px 10px; /* Większy padding dla lepszej czytelności */
+        border-radius: 8px;
+        margin-right: 4px;
+    }
+
+    #timetable li {
+        min-height: 58px; /* Dopasowane do zrzutu ekranu (około 55-60px) */
+        margin-bottom: 1px;
+    }
+
+    .edit-btn, .delete-btn, .add-btn {
+        font-size: 13px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 11px;
+    }
+
+    input, select {
+        font-size: 11px;
+        padding: 5px;
+    }
+
+    button[type="submit"], #confirmReset, #cancelReset {
+        font-size: 11px;
+        padding: 7px;
+    }
+
+    .error-message {
+        font-size: 11px;
+    }
+}
+
+/* Ogólne media query dla innych urządzeń mobilnych (zapewnienie responsywności) */
+@media only screen and (max-width: 600px) and (min-width: 429px) {
     nav {
         padding: 2px 3px;
     }
@@ -368,32 +466,32 @@ button[type="submit"]:hover {
     }
 
     .time-left {
-        width: 30px;
-        font-size: 6px;
-        padding-right: 1px;
+        width: 35px;
+        font-size: 7px;
+        padding-right: 3px;
     }
 
     .subject {
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .time {
-        font-size: 6px;
+        font-size: 8px;
     }
 
     .lesson {
-        padding: 3px 6px;
+        padding: 6px 8px;
         border-radius: 6px;
-        margin-right: 2px;
+        margin-right: 3px;
     }
 
     #timetable li {
-        min-height: 35px;
+        min-height: 55px;
         margin-bottom: 0.5px;
     }
 
     .edit-btn, .delete-btn, .add-btn {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .modal-content {
