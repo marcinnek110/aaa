@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,8 +17,9 @@
             <span class="nav-icon left-arrow">←</span>
             <span class="nav-title">MD+ Dzień</span>
             <span class="nav-icons-right">
-                <span class="nav-icon eye">👁️</span>
-                <span class="nav-icon plus">➕</span>
+                <span class="nav-icon eye" id="toggleEditMode">👁️</span>
+                <span class="nav-icon plus" id="toggleTheme">🌙</span>
+                <button id="resetPlanBtn" class="reset-btn">Resetuj plan</button>
             </span>
         </nav>
         <div class="date-header">
@@ -36,6 +38,81 @@
     <main>
         <ul id="timetable"></ul>
     </main>
+
+    <!-- Modal do wpisywania hasła -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3>Wpisz hasło</h3>
+            <form id="passwordForm">
+                <label for="passwordInput">Hasło:</label>
+                <input type="password" id="passwordInput" name="password" required>
+                <div id="passwordError" class="error-message"></div>
+                <button type="submit">Potwierdź</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal do edycji lekcji -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3>Edytuj lekcję</h3>
+            <form id="editForm">
+                <label for="editSubject">Przedmiot:</label>
+                <input type="text" id="editSubject" name="subject" required>
+                <label for="editTime">Godziny:</label>
+                <input type="text" id="editTime" name="time" required>
+                <label for="editColor">Kolor:</label>
+                <input type="color" id="editColor" name="color" required>
+                <button type="submit">Zapisz</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal do dodawania lekcji (z listą rozwijaną) -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3>Dodaj lekcję</h3>
+            <form id="addForm">
+                <label for="addSubject">Przedmiot:</label>
+                <input type="text" id="addSubject" name="subject" required>
+                <label for="addTime">Godziny:</label>
+                <select id="addTime" name="time" required>
+                    <!-- Opcje będą dynamicznie generowane w JavaScript -->
+                </select>
+                <label for="addColor">Kolor:</label>
+                <input type="color" id="addColor" name="color" value="#66ccff" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal do podglądu szczegółów lekcji -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3>Szczegóły lekcji</h3>
+            <p><strong>Przedmiot:</strong> <span id="detailSubject"></span></p>
+            <p><strong>Godziny:</strong> <span id="detailTime"></span></p>
+            <p><strong>Nauczyciel:</strong> <span id="detailTeacher"></span></p>
+            <p><strong>Sala:</strong> <span id="detailRoom"></span></p>
+            <p><strong>Notatki:</strong> <span id="detailNotes"></span></p>
+        </div>
+    </div>
+
+    <!-- Modal do potwierdzenia resetowania -->
+    <div id="resetModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3>Czy na pewno chcesz zresetować plan?</h3>
+            <p>Spowoduje to przywrócenie domyślnego planu lekcji i utratę wszystkich zmian.</p>
+            <button id="confirmReset">Tak, resetuj</button>
+            <button id="cancelReset">Anuluj</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
